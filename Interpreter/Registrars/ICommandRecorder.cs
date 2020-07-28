@@ -1,12 +1,14 @@
+using System;
 using System.Collections.Generic;
+using Interpreter.Performers;
 
-namespace Interpreter
+namespace Interpreter.Registrars
 {
     public interface ICommandRecorder
     {
-        IEnumerable<string> Commands { get; }
-        IVirtualMachine VirtualMachine { get; }
+        Dictionary<string, Action<string[], IVirtualMachine>> Commands { get; }
 
-        void Run();
+        void RegisterCommand(string command, Action<string[], IVirtualMachine> action);
+        void Run(IVirtualMachine vm);
     }
 }

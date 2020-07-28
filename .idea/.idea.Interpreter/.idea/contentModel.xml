@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Vlad\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\Vlad\.Rider2019.3\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\Vlad\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Vlad\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Interpreter.-131834620.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Vlad\Documents\Rider Projects\Interpreter" t="IncludeFlat">
+      <e p="Interpreter" t="IncludeRecursive">
+        <e p="1.am" t="Include" />
+        <e p="Analyzers" t="Include">
+          <e p="ILexer.cs" t="Include" />
+          <e p="IParser.cs" t="Include" />
+          <e p="Lexer.cs" t="Include" />
+          <e p="Parser.cs" t="Include" />
+        </e>
+        <e p="BasicTypes" t="Include">
+          <e p="IBasicType.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Entities" t="Include">
+          <e p="Token.cs" t="Include" />
+        </e>
+        <e p="Errors" t="Include">
+          <e p="ExceptionHandler.cs" t="Include" />
+        </e>
+        <e p="Interpreter.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Interpreter.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Performers" t="Include">
+          <e p="Interpreter.cs" t="Include" />
+          <e p="IVirtualMachine.cs" t="Include" />
+          <e p="VirtualMachine.cs" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Registrars" t="Include">
+          <e p="BasicRecorder.cs" t="Include" />
+          <e p="CommandRecorder.cs" t="Include" />
+          <e p="ICommandRecorder.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Interpreter.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

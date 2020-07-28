@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Interpreter
+namespace Interpreter.Analyzers
 {
     public class Lexer : ILexer
     {
@@ -13,12 +13,14 @@ namespace Interpreter
         public Lexer(string text)
         {
             _text = text;
-            TokenPattern = @"\s*[a-zA-Z]{2,3}\s+([a-zA-Z]+\s*,\s*[a-zA-Z]+)|([a-zA-Z]+)\s*";
+            var ptr = @"[a-zA-Z]{2,3}\s+[a-zA-Z][a-zA-Z0-9]*";
+            TokenPattern = @$"{ptr}\s*,\s*[a-zA-Z0-9]+|{ptr}";
         }
 
         public void Run()
         {
-            Lexemes = Regex.Split(_text, TokenPattern)
+            Lexemes = Regex.Matches(_text, TokenPattern)
+                           .Select(line => line.Value)
                            .Where(line => line.Length > 0);
         }
     }

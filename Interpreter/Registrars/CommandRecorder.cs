@@ -1,21 +1,26 @@
+using System;
 using System.Collections.Generic;
+using Interpreter.Performers;
 
-namespace Interpreter
+namespace Interpreter.Registrars
 {
     public class CommandRecorder : ICommandRecorder
     {
-        public IEnumerable<string> Commands { get; }
-        public IVirtualMachine VirtualMachine { get; }
+        public Dictionary<string, Action<string[], IVirtualMachine>> Commands { get; }
 
-        public CommandRecorder(IEnumerable<string> commands, IVirtualMachine virtualMachine)
+        public CommandRecorder()
         {
-            Commands = commands;
-            VirtualMachine = virtualMachine;
+            Commands = new Dictionary<string, Action<string[], IVirtualMachine>>();
         }
 
-        public void Run()
+        public void RegisterCommand(string command, Action<string[], IVirtualMachine> action)
         {
-            throw new System.NotImplementedException();
+            Commands[command] = action;
+        }
+
+        public void Run(IVirtualMachine vm)
+        {
+            BasicRecorder.RegisterTo(vm.CommandRecorder);
         }
     }
 }

@@ -2,21 +2,18 @@ using System;
 using System.IO;
 using Interpreter.Analyzers;
 
-namespace Interpreter
+namespace Interpreter.Performers
 {
     public class Interpreter
     {
-        private string Path { get; }
         private ILexer Lexer { get; }
         private IParser Parser { get; }
         private IVirtualMachine VirtualMachine { get; }
 
-        public Interpreter(string path,
-                           ILexer lexer,
+        public Interpreter(ILexer lexer,
                            IParser parser,
                            IVirtualMachine virtualMachine)
         {
-            Path = path;
             Lexer = lexer;
             Parser = parser;
             VirtualMachine = virtualMachine;
@@ -24,11 +21,15 @@ namespace Interpreter
 
         public void Run()
         {
+            VirtualMachine.CommandRecorder.Run(VirtualMachine);
+            Lexer.Run();
+            Parser.Run();
             var streamWriter = new StreamWriter(Console.OpenStandardOutput())
             {
                 AutoFlush = true
             };
             VirtualMachine.Run(streamWriter);
+            streamWriter.Close();
             Console.SetOut(streamWriter);
         }
     }

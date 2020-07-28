@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using System.IO;
-using Interpreter.Entities;
+using Interpreter.Analyzers;
+using Interpreter.Registrars;
 
-namespace Interpreter
+namespace Interpreter.Performers
 {
     public interface IVirtualMachine
     {
-        IEnumerable<IInstruction> Instructions { get; }
-        int InstructionPointer { get; }
-        IEnumerable<byte> Memory { get; }
-        
-        void RegisterCommand();
-        StreamReader Run(StreamWriter writer);
+        IParser Parser { get; }
+        Dictionary<string, double> Memory { get; }
+        ICommandRecorder CommandRecorder { get; }
+
+        void Run(StreamWriter writer);
     }
 }
